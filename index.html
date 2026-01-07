@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Learning Tuition Academy</title>
+
+<!-- Font Awesome latest CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    color:#333;
+    scroll-behavior:smooth;
+}
+
+/* HEADER */
+header{
+    background:#0b3c5d;
+    color:white;
+    padding:15px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+header h1{
+    font-size:22px;
+}
+
+.menu{
+    list-style:none;
+    display:flex;
+}
+
+.menu li{
+    margin-left:25px;
+}
+
+.menu li a{
+    color:white;
+    text-decoration:none;
+}
+.menu li a:hover{
+    color: #1877f2;
+}
+
+.menu-btn{
+    display:none;
+    font-size:26px;
+    cursor:pointer;
+}
+
+/* HERO IMAGE FULL WIDTH & HEIGHT */
+.hero-section{
+    position:relative;
+    width:100%;
+    height:93vh;
+    overflow:hidden;
+}
+
+.hero-section img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.hero-section::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.45);
+}
+
+.hero-overlay{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    color:white;
+    z-index:2;
+}
+
+.hero-overlay h2{
+    font-size:48px;
+    margin-bottom:10px;
+}
+
+.hero-overlay p{
+    font-size:22px;
+    opacity:0.9;
+}
+
+/* CIRCLE IMAGE + SOCIAL ICONS */
+.img-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin:50px 0;
+}
+
+.img-container img{
+    width:30vw;
+    max-width:300px;
+    min-width:150px;
+    aspect-ratio:1/1;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #0b3c5d;
+    transition: transform 0.3s;
+}
+
+.img-container img:hover{
+    transform:scale(1.05);
+}
+
+.social-links{
+    margin-top:20px;
+    display:flex;
+    gap:25px;
+}
+
+.social-links a{
+    font-size:30px;
+    color:#0b3c5d;
+    transition:transform 0.3s, color 0.3s;
+}
+
+.social-links a:hover{
+    color:#f39c12;
+    transform:scale(1.3);
+}
+
+/* ABOUT */
+section{
+    padding:70px 20px;
+}
+
+section h2{
+    text-align:center;
+    color:#0b3c5d;
+    font-size:32px;
+    margin-bottom:20px;
+}
+
+.about-text{
+    max-width:900px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.8;
+    text-align:left;
+}
+
+/* COURSES */
+.courses{
+    text-align:center;
+    font-size:18px;
+}
+
+/* GALLERY */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+    gap:20px;
+}
+
+.frame{
+    background:white;
+    padding:10px;
+    border-radius:15px;
+    box-shadow:0 6px 15px rgba(0,0,0,0.2);
+}
+
+.frame img,
+.frame video{
+    width:100%;
+    border-radius:12px;
+}
+
+/* CONTACT FORM */
+.contact-form{
+    max-width:500px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 6px 15px rgba(0,0,0,0.2);
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+.contact-form button{
+    background:#0b3c5d;
+    color:white;
+    padding:12px;
+    width:100%;
+    border:none;
+    border-radius:8px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .menu{
+        display:none;
+        flex-direction:column;
+        background:#0b3c5d;
+        position:absolute;
+        top:60px;
+        right:0;
+        width:200px;
+    }
+
+    .menu li{
+        margin:15px 0;
+        text-align:center;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero-overlay h2{
+        font-size:32px;
+    }
+
+    .hero-overlay p{
+        font-size:16px;
+    }
+
+    .img-container img{
+        width:50vw;
+    }
+
+ 
+}/* Social container */
+.social-icons {
+    display: flex;
+    gap: 25px;
+}
+
+/* Icon style */
+.social-icons a {
+    width: 60px;
+    height: 60px;
+    background: #222;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 28px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Hover colors */
+.social-icons a.facebook:hover {
+    background: #1877f2;
+}
+
+.social-icons a.tiktok:hover {
+    background: #000;
+    box-shadow: 0 0 15px #25f4ee, 0 0 25px #fe2c55;
+}
+
+.social-icons a.youtube:hover {
+    background: #ff0000;
+}
+
+/* Hover animation */
+.social-icons a:hover {
+    transform: translateY(-8px) scale(1.1);
+}
+.phone{
+    font-size:18px;
+    color:#231a1a;
+    margin-bottom:20px;
+    text-align: center;
+}
+
+
+    
+</style>
+</head>
+<body>
+
+<header>
+    <h1>The Learning Tuition Academy</h1>
+    <span class="menu-btn" onclick="toggleMenu()">☰</span>
+    <ul class="menu" id="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</header>
+
+<!-- HERO IMAGE -->
+<div class="hero-section" id="home">
+    <img src="imge/tuition.png.jpg" alt="Children Studying">
+    <div class="hero-overlay">
+        <h2>Welcome to Our Website</h2>
+        <p>The Learning Tuition Academy</p>
+    </div>
+</div>
+
+<!-- CIRCLE IMAGE + SOCIAL ICONS -->
+
+
+<!-- ABOUT -->
+<section id="about">
+    <h2>About Our Institute</h2>
+    <div class="about-text">
+        <b><h1>Admistion Open</h1></b>
+        The Learning Tuition Academy is a well‑established and modern educational
+        institute dedicated to providing quality education in a disciplined and
+        friendly environment. Our institute focuses on academic excellence,
+        confidence building, and practical learning skills. With experienced
+        teachers, updated teaching methods, and individual student attention,
+        we aim to help students achieve success in their academic and professional
+        careers. We believe education is the key to a bright and successful future.
+        <b>Location:</b>Malaopur Road Pirbaba Buner In Hira High School
+    </div>
+</section>
+
+<!-- COURSES -->
+<section id="courses">
+    <h2>Our Courses</h2>
+    <div class="courses">
+        ✔ School & College Tuition <br><br>
+        ✔ 1st class Student: All Books <br><br>
+        ✔ 2nd Class student: All Books <br><br>
+        ✔ 3rd Class Student: All Books<br><br>
+        ✔ 4th Class Student: 3 Books One Day And Three Books Another Day <br><br>
+        ✔ 5th Class student: 3 Books One Day And Three Books Another Day<br><br>
+        ✔ 6th Class student: 3 Books One Day And Three Books Another Day<br><br>
+        ✔ 7th Class student: 3 Books One Day And Three Books Another Day<br><br>
+        ✔ 8th Class student: 3 Books One Day And Three Books Another Day<br><br>
+        ✔ 9th and 10th Class Availible <br><br>
+        ✔ English Speaking & Grammar
+    </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+    <h2>Institute Gallery</h2>
+    <div class="gallery">
+        <!-- Example Images -->
+        <div class="frame"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b"></div>
+        <div class="frame"><img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f"></div>
+        <div class="frame"><img src="https://images.unsplash.com/photo-1513258496099-48168024aec0"></div>
+        <div class="frame"><img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b"></div>
+        <div class="frame"><img src="imge/tuition.png.jpg"></div>
+        <!-- More images and videos can be added like before -->
+
+        <div class="frame"><video controls src="imge/tui.mp4.mp4"></video></div>
+        <div class="frame"><video controls src="imge/tui.mp3.mp4"></video></div>
+        <div class="frame"><video controls src="imge/ahmad.mp3.mp4"></video></div>
+        <div class="frame"><video controls src="imge/ijaz.mp3.mp4"></video></div>
+        <div class="frame"><video controls src="imge/usamasir.mp3.mp4"></video></div>
+        <div class="frame"><video controls src="imge/rayan.mp3.mp4"></video></div>
+        <div class="frame"><video controls src="imge/irfan.mp3.mp4"></video></div>
+        <div class="frame"><video controls src="imge/adnan.mp3.mp4"></video></div>
+        <div class="frame"><video controls src="imge/all.mp3.mp4"></video></div>
+        <div class="frame"><video controls src="imge/jan.mp3.mp4"></video></div>
+        <div class="frame"><video controls src="imge/day.mp3.mp4"></video></div>
+        <div class="frame"><video controls src="imge/janan.mp3.mp4"></video></div>
+        <div class="frame"><video controls src="imge/teacher.mp3.mp4"></video></div>
+        <div class="frame"><video controls src="imge/hi.mp3.mp4"></video></div>
+        <div class="frame"><video controls src="imge/khan.mp3.mp4"></video></div>
+    </div>
+   
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2>Send Us a Message</h2>
+    <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      
+        
+    </form>
+    <div class="img-container">
+        <img src="imge/JANAN.mp3.jpg" alt="Janan">
+    
+        
+    </div>
+    <div class="phone">
+        <h1>Usama</h1>
+        📞 +92 0349 2272701
+    </div>
+    <div class="social-icons" style="align-items: center; justify-content: center;">
+        <a href="https://facebook.com" target="_blank" class="facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+    
+        <a href="https://www.tiktok.com/@sirg999" target="_blank" class="tiktok">
+            <i class="fab fa-tiktok"></i>
+        </a>
+    
+        <a href="https://youtube.com" target="_blank" class="youtube">
+            <i class="fab fa-youtube"></i>
+        </a>
+    </div>
+<br><br><br><br>
+<h1 style="text-align: center;">Devolper</h1>
+
+    <div class="img-container">
+        <img src="imge//janan.jpg.jpg" alt="Janan">
+    
+        
+    </div>
+    <div class="phone">
+        <h1>Irfan khan</h1>
+        📞 0060 196 909014
+    </div>
+    <div class="social-icons" style="align-items: center; justify-content: center;">
+        <a href="https://facebook.com" target="_blank" class="facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+    
+        <a href="https://www.tiktok.com/@sirg999" target="_blank" class="tiktok">
+            <i class="fab fa-tiktok"></i>
+        </a>
+    
+        <a href="https://youtube.com" target="_blank" class="youtube">
+            <i class="fab fa-youtube"></i>
+        </a>
+    </div>
+
+
+</section>
+
+<footer style="background-color: #0b3c5d; color: white; text-align: center; padding: 10px;">
+    © 2026| The Learnign Tuition Academy is Best quality
+</footer>
+
+<script>
+function toggleMenu(){
+    var menu = document.getElementById("menu");
+    menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+}
+
+// Optional JS (example click animation)
+document.querySelectorAll('.social-icons a').forEach(icon => {
+    icon.addEventListener('click', () => {
+        icon.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            icon.style.transform = '';
+        }, 150);
+    });
+});
+</script>
+
+</body>
+</html>
+
